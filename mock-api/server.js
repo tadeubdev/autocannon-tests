@@ -1,18 +1,8 @@
-const fastify = require('fastify')({
-  logger: true
+const fastify = require('fastify')()
+
+fastify.get('/external', async () => {
+  await new Promise(r => setTimeout(r, 50))
+  return { data: 'ok', ts: Date.now() }
 })
 
-fastify.get('/api/data', async (request, reply) => {
-  // Simulate some processing time
-  await new Promise(resolve => setTimeout(resolve, 5_000));
-
-  reply.send({ message: 'Hello from the mock API!' });
-});
-
-fastify.listen({ port: 3000 }, (err, address) => {
-  if (err) {
-    console.error(err);
-    process.exit(1);
-  }
-  console.log(`Mock API server is running at ${address}`);
-});
+fastify.listen({ port: 3001, host: '0.0.0.0' })
