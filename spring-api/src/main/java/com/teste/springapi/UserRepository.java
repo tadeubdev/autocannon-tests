@@ -1,4 +1,4 @@
-package com.teste.ping;
+package com.teste.springapi;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

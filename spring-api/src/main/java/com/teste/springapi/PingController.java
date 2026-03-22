@@ -1,4 +1,4 @@
-package com.teste.ping;
+package com.teste.springapi;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
